@@ -1,0 +1,6 @@
+include_roots: []
+# Key relative to old directory, remap relative to new directory
+mappings: {}
+package_exclusions:
+  - Utils/Hash
+  - Utils/Hash/libcrc
