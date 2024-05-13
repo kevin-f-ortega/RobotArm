@@ -105,6 +105,7 @@ module RobotArm {
       rateGroup1.RateGroupMemberOut[0] -> tlmSend.Run
       rateGroup1.RateGroupMemberOut[1] -> fileDownlink.Run
       rateGroup1.RateGroupMemberOut[2] -> systemResources.run
+      rateGroup1.RateGroupMemberOut[3] -> armDemo.Run
 
       # Rate group 2
       rateGroupDriver.CycleOut[Ports_RateGroups.rateGroup2] -> rateGroup2.CycleIn
@@ -140,7 +141,15 @@ module RobotArm {
     }
 
     connections RobotArm {
-      # Add here connections to user-defined components
+      armDemo.position[0] -> clawServo.position
+      armDemo.position[1] -> baseServo.position
+      armDemo.position[2] -> armHeightServo.position
+      armDemo.position[3] -> armLengthServo.position
+
+      clawServo.i2c -> i2cDrv.write
+      baseServo.i2c -> i2cDrv.write
+      armHeightServo.i2c -> i2cDrv.write
+      armLengthServo.i2c -> i2cDrv.write
     }
 
   }
