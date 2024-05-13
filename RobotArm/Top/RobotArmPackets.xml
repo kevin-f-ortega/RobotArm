@@ -78,6 +78,34 @@
         <channel name="systemResources.CPU_15"/>
     </packet>
 
+    <packet name="ArmDemo" id="8" level="2">
+      <channel name="armDemo.AA_ClawAngle"/>
+      <channel name="armDemo.AA_BaseAngle"/>
+      <channel name="armDemo.AA_ArmHeightAngle"/>
+      <channel name="armDemo.AA_ArmLengthAngle"/>
+      <channel name="armDemo.AA_Cycles"/>
+    </packet>
+
+    <packet name="ClawServo" id="9" level="2">
+      <channel name="clawServo.PS_Angle"/>
+      <channel name="clawServo.PS_Reg"/>
+    </packet>
+
+    <packet name="BaseServo" id="10" level="2">
+      <channel name="baseServo.PS_Angle"/>
+      <channel name="baseServo.PS_Reg"/>
+    </packet>
+
+    <packet name="ArmHeightServo" id="11" level="2">
+      <channel name="armHeightServo.PS_Angle"/>
+      <channel name="armHeightServo.PS_Reg"/>
+    </packet>
+
+    <packet name="ArmLengthServo" id="12" level="2">
+      <channel name="armLengthServo.PS_Angle"/>
+      <channel name="armLengthServo.PS_Reg"/>
+    </packet>
+
     <!-- Ignored packets -->
 
     <ignore>

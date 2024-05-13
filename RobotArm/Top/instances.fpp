@@ -87,6 +87,31 @@ module RobotArm {
     stack size Default.STACK_SIZE \
     priority 96
 
+  instance armDemo: RobotArm.ArmDemo base id 0x0E00 \
+    queue size Default.QUEUE_SIZE \
+    stack size Default.STACK_SIZE \
+    priority 96
+
+  instance clawServo: RobotArm.PcaServo base id 0x0F00 \
+    queue size Default.QUEUE_SIZE \
+    stack size Default.STACK_SIZE \
+    priority 96
+
+  instance baseServo: RobotArm.PcaServo base id 0x1000 \
+    queue size Default.QUEUE_SIZE \
+    stack size Default.STACK_SIZE \
+    priority 96
+
+  instance armHeightServo: RobotArm.PcaServo base id 0x1100 \
+    queue size Default.QUEUE_SIZE \
+    stack size Default.STACK_SIZE \
+    priority 96
+
+  instance armLengthServo: RobotArm.PcaServo base id 0x1200 \
+    queue size Default.QUEUE_SIZE \
+    stack size Default.STACK_SIZE \
+    priority 96
+
   # ----------------------------------------------------------------------
   # Queued component instances
   # ----------------------------------------------------------------------
@@ -120,5 +145,7 @@ module RobotArm {
   instance systemResources: Svc.SystemResources base id 0x4A00
 
   instance comStub: Svc.ComStub base id 0x4B00
+
+  instance i2cDrv: Drv.LinuxI2cDriver base id 0x4C00
 
 }

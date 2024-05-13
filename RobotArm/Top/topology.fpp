@@ -17,7 +17,12 @@ module RobotArm {
     # ----------------------------------------------------------------------
 
     instance $health
+    instance armDemo
+    instance armHeightServo
+    instance armLengthServo
+    instance baseServo
     instance blockDrv
+    instance clawServo
     instance tlmSend
     instance cmdDisp
     instance cmdSeq
@@ -33,6 +38,7 @@ module RobotArm {
     instance fileUplink
     instance bufferManager
     instance framer
+    instance i2cDrv
     instance posixTime
     instance prmDb
     instance rateGroup1
