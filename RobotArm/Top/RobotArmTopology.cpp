@@ -132,6 +132,12 @@ void configureTopology() {
     configurationTable.entries[2] = {.depth = 100, .priority = 1};
     // Allocation identifier is 0 as the MallocAllocator discards it
     comQueue.configure(configurationTable, 0, mallocator);
+    i2cDrv.open("/dev/i2c-1");
+    clawServo.configure(0, 0x40);
+    baseServo.configure(1, 0x40);
+    armHeightServo.configure(2, 0x40);
+    armLengthServo.configure(3, 0x40);
+    clawServo.configChip();
 }
 
 // Public functions for use in main program are namespaced with deployment name RobotArm

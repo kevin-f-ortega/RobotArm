@@ -95,47 +95,22 @@ module RobotArm {
   instance clawServo: RobotArm.PcaServo base id 0x0F00 \
     queue size Default.QUEUE_SIZE \
     stack size Default.STACK_SIZE \
-    priority 96 \
-  {
-
-    phase Fpp.ToCpp.Phases.configComponents """
-    clawServo.configure(0, 0x40);
-    clawServo.configChip();
-    """
-  }
+    priority 96
 
   instance baseServo: RobotArm.PcaServo base id 0x1000 \
     queue size Default.QUEUE_SIZE \
     stack size Default.STACK_SIZE \
-    priority 96 \
-  {
-
-    phase Fpp.ToCpp.Phases.configComponents """
-    baseServo.configure(1, 0x40);
-    """
-  }
+    priority 96
 
   instance armHeightServo: RobotArm.PcaServo base id 0x1100 \
     queue size Default.QUEUE_SIZE \
     stack size Default.STACK_SIZE \
-    priority 96 \
-  {
-
-    phase Fpp.ToCpp.Phases.configComponents """
-    armHeightServo.configure(2, 0x40);
-    """
-  }
+    priority 96
 
   instance armLengthServo: RobotArm.PcaServo base id 0x1200 \
     queue size Default.QUEUE_SIZE \
     stack size Default.STACK_SIZE \
-    priority 96 \
-  {
-
-    phase Fpp.ToCpp.Phases.configComponents """
-    armLengthServo.configure(3, 0x40);
-    """
-  }
+    priority 96
 
   # ----------------------------------------------------------------------
   # Queued component instances
@@ -171,11 +146,6 @@ module RobotArm {
 
   instance comStub: Svc.ComStub base id 0x4B00
 
-  instance i2cDrv: Drv.LinuxI2cDriver base id 0x4C00 \
-  {
-    phase Fpp.ToCpp.Phases.configComponents """
-    i2cDrv.open("/dev/i2c-1");
-    """
-  }
+  instance i2cDrv: Drv.LinuxI2cDriver base id 0x4C00
 
 }
