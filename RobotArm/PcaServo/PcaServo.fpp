@@ -62,6 +62,9 @@ module RobotArm {
     @ Register value
     telemetry PS_Reg: U16 id 1
 
+    @ Enable or Disable status of PcaServo
+    telemetry PS_Enabled: Fw.Enabled id 2
+
   }
 
 }

@@ -20,7 +20,7 @@ namespace RobotArm {
 // Construction, initialization, and destruction
 // ----------------------------------------------------------------------
 
-PcaServo ::PcaServo(const char* const compName) : PcaServoComponentBase(compName), m_instance(0), m_addr(0) {
+PcaServo ::PcaServo(const char* const compName) : PcaServoComponentBase(compName), m_instance(0), m_addr(0), m_servoEnabled(Fw::Enabled::DISABLED) {
     this->m_buff.setData(this->m_data);
     this->m_buff.setSize(I2C_BUFFER_SIZE);
 }
@@ -126,11 +126,15 @@ void PcaServo ::PS_DIS_cmdHandler(const FwOpcodeType opCode, const U32 cmdSeq) {
     this->m_buff.setSize(2);
     // call I2C port
     this->i2c_out(0, SERVO_BRD_ADDR, this->m_buff);
+    this->m_servoEnabled = Fw::Enabled::DISABLED;
+    this->tlmWrite_PS_Enabled(this->m_servoEnabled);
     this->cmdResponse_out(opCode, cmdSeq, Fw::CmdResponse::OK);
 }
 
 void PcaServo ::PS_EN_cmdHandler(const FwOpcodeType opCode, const U32 cmdSeq) {
     this->configChip();
+    this->m_servoEnabled = Fw::Enabled::ENABLED;
+    this->tlmWrite_PS_Enabled(this->m_servoEnabled);
     this->cmdResponse_out(opCode, cmdSeq, Fw::CmdResponse::OK);
 }
 

@@ -89,21 +89,25 @@
     <packet name="ClawServo" id="9" level="2">
       <channel name="clawServo.PS_Angle"/>
       <channel name="clawServo.PS_Reg"/>
+      <channel name="clawServo.PS_Enabled"/>
     </packet>
 
     <packet name="BaseServo" id="10" level="2">
       <channel name="baseServo.PS_Angle"/>
       <channel name="baseServo.PS_Reg"/>
+      <channel name="baseServo.PS_Enabled"/>
     </packet>
 
     <packet name="ArmHeightServo" id="11" level="2">
       <channel name="armHeightServo.PS_Angle"/>
       <channel name="armHeightServo.PS_Reg"/>
+      <channel name="armHeightServo.PS_Enabled"/>
     </packet>
 
     <packet name="ArmLengthServo" id="12" level="2">
       <channel name="armLengthServo.PS_Angle"/>
       <channel name="armLengthServo.PS_Reg"/>
+      <channel name="armLengthServo.PS_Enabled"/>
     </packet>
 
     <!-- Ignored packets -->

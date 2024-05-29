@@ -15,6 +15,7 @@
 
 #include "RobotArm/PcaServo/PcaServoComponentAc.hpp"
 #include "RobotArm/PcaServo/PcaServoComponentImplCfg.hpp"
+#include "Fw/Types/EnabledEnumAc.hpp"
 
 namespace RobotArm {
 
@@ -93,8 +94,7 @@ namespace RobotArm {
       U32 m_addr;
       U8 m_data[I2C_BUFFER_SIZE];
       Fw::Buffer m_buff;
-
-
+      Fw::Enabled m_servoEnabled;
     };
 
 } // end namespace RobotArm
