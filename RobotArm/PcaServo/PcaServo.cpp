@@ -51,9 +51,9 @@ void PcaServo::setPos(F32 angle) {
     // Check that angle is within bounds
     Fw::ParamValid validity;
     F32 minDegree = this->paramGet_minDegree(validity);
-    FW_ASSERT(validity == Fw::ParamValid::VALID);
+    FW_ASSERT(validity != Fw::ParamValid::INVALID);
     F32 maxDegree = this->paramGet_maxDegree(validity);
-    FW_ASSERT(validity == Fw::ParamValid::VALID);
+    FW_ASSERT(validity != Fw::ParamValid::INVALID);
 
     if((angle < minDegree) || (angle > maxDegree)) {
         this->log_WARNING_LO_PS_AngleIsOutOfBounds(angle, minDegree, maxDegree);
