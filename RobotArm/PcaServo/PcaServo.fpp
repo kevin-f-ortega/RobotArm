@@ -24,6 +24,12 @@ module RobotArm {
     @ Time get port
     time get port timeCaller
 
+    @ Parameter get
+    param get port prmGetOut
+
+    @ Parameter set
+    param set port prmSetOut
+
     @ servo position port
     async input port position: RobotArm.ServoSet
 
@@ -55,6 +61,16 @@ module RobotArm {
       id 0 \
       format "{} {} {}"
 
+    @ Angle for position is out of bounds
+    event PS_AngleIsOutOfBounds(
+      angle: F32 @< The commanded angle
+      minDegree: F32 @< Lower limit
+      maxDegree: F32 @< Upper limit
+    ) \
+    severity warning low \
+    id 1 \
+    format "Commanded angle {} is not within bounds [{}, {}]"
+
     @ Commanded angle
     telemetry PS_Angle: F32 id 0
 
@@ -64,6 +80,12 @@ module RobotArm {
 
     @ Enable or Disable status of PcaServo
     telemetry PS_Enabled: Fw.Enabled id 2
+
+    @ Parameter to control the lower limit of the servo
+    param minDegree: F32 default 0.0 @< Lower limit in which the servo cannot pass
+
+    @ Parameter to control the upper limit of the servo
+    param maxDegree: F32 default 80 @< Upper limit in which the servo cannot pass
 
   }
 

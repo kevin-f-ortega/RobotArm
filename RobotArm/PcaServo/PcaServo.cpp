@@ -48,6 +48,18 @@ void PcaServo::setPos(F32 angle) {
     // https://learn.sparkfun.com/tutorials/pi-servo-hat-hookup-guide#software---python
     // for scaling
 
+    // Check that angle is within bounds
+    Fw::ParamValid validity;
+    F32 minDegree = this->paramGet_minDegree(validity);
+    FW_ASSERT(validity == Fw::ParamValid::VALID);
+    F32 maxDegree = this->paramGet_maxDegree(validity);
+    FW_ASSERT(validity == Fw::ParamValid::VALID);
+
+    if((angle < minDegree) || (angle > maxDegree)) {
+        this->log_WARNING_LO_PS_AngleIsOutOfBounds(angle, minDegree, maxDegree);
+        return;
+    }
+
     // set zero point. Pick the register set for this servo
     this->m_data[0] = 0x6 + 4 * this->m_instance;
     this->m_data[1] = 0;
