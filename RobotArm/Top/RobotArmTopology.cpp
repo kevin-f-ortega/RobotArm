@@ -154,7 +154,7 @@ void setupTopology(const TopologyState& state) {
     // Project-specific component configuration. Function provided above. May be inlined, if desired.
     configureTopology();
     // Autocoded parameter loading. Function provided by autocoder.
-    // loadParameters();
+    loadParameters();
     // Autocoded task kick-off (active components). Function provided by autocoder.
     startTasks(state);
     // Initialize socket communication if and only if there is a valid specification
