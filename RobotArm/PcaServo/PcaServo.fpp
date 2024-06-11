@@ -82,10 +82,10 @@ module RobotArm {
     telemetry PS_Enabled: Fw.Enabled id 2
 
     @ Parameter to control the lower limit of the servo
-    param minDegree: F32 default 0.0 @< Lower limit in which the servo cannot pass
+    param minDegree: F32 default -10.0 @< Lower limit in which the servo cannot pass
 
     @ Parameter to control the upper limit of the servo
-    param maxDegree: F32 default 80 @< Upper limit in which the servo cannot pass
+    param maxDegree: F32 default 10.0 @< Upper limit in which the servo cannot pass
 
   }
 
